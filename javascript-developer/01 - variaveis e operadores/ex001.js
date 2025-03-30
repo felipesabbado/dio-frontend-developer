@@ -8,10 +8,16 @@
  * Imprima no console o valor que será gasto para realizar esta viagem.
  */
 
-const precoCombustivel = 6.35;
-const kmPorLitro = 14.9;
-const distanciaKm = 350;
+function calcularPrecoViagem(precoCombustivel, distanciaKm, consumoKmPorLitro) {
+    return precoCombustivel * (distanciaKm / consumoKmPorLitro);
+}
 
-const precoFinal = precoCombustivel * (distanciaKm / kmPorLitro);
-
-console.log(precoFinal.toFixed(2)); // Transforma um número em string e arrendonda para o número de casas decimais informado
+(function () {
+    const precoCombustivel = 6.35;
+    const kmPorLitro = 14.9;
+    const distanciaKm = 350;
+    
+    const precoFinal = calcularPrecoViagem(precoCombustivel, distanciaKm, kmPorLitro);
+    
+    console.log(precoFinal.toFixed(2)); // Transforma um número em string e arrendonda para o número de casas decimais informado
+})();

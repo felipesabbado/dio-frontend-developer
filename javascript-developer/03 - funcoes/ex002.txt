@@ -1,0 +1,1 @@
+Refatore o código dos exercícios anteriores para utilizar funções

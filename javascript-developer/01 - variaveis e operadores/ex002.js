@@ -10,20 +10,25 @@
  * Imprima no console o valor que será gasto para realizar esta viagem.
  */
 
-const precoGasolina = 6.35;
-const precoEtanol = 4.36;
-const kmPorLitroGasolina = 14.9;
-const kmPorLitroEtanol = 10.3;
-const distanciaKm = 350;
-const tipoCombustivel = "Etanol" // Gasolina ou Etanol
-let precoFinal = "O preço final será R$";
-
-if (tipoCombustivel === "Gasolina") {
-    precoFinal += (precoGasolina * (distanciaKm / kmPorLitroGasolina)).toFixed(2);
-} else if (tipoCombustivel === "Etanol") {
-    precoFinal += (precoEtanol * (distanciaKm / kmPorLitroEtanol)).toFixed(2);
-} else {
-    precoFinal = "Combustível inválido";
+function calcularPrecoViagem(precoCombustivel, distanciaKm, consumoKmPorLitro) {
+    return precoCombustivel * (distanciaKm / consumoKmPorLitro);
 }
 
-console.log(precoFinal);
+(function () {
+    const precoGasolina = 6.35;
+    const precoEtanol = 4.36;
+    const kmPorLitroGasolina = 14.9;
+    const kmPorLitroEtanol = 10.3;
+    const distanciaKm = 350;
+    const combustivel = "Etanol" // Gasolina ou Etanol
+    
+    let precoFinal;
+    
+    if (combustivel === "Gasolina") {
+        precoFinal = calcularPrecoViagem(precoGasolina, distanciaKm, kmPorLitroGasolina);
+    } else if (combustivel === "Etanol") {
+        precoFinal = calcularPrecoViagem(precoEtanol, distanciaKm, kmPorLitroEtanol);
+    }
+    
+    console.log("O preço final será R$" + precoFinal.toFixed(2));
+})();
